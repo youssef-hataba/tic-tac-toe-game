@@ -92,10 +92,6 @@ main {
     color: #17122a;
 }
 
-#name-input:focus {
-    border-color: #0056b3; /* Highlighted underline on focus */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for focus */
-}
 .text i{
     font-size: 9px;
     margin-left: 3px;
@@ -109,38 +105,39 @@ main {
     color: #a737ff; 
 }
 .player {
-    background-color: #17122a;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-weight: bold;
     cursor: pointer;
-    border-radius: 12px;
-    border: 4px solid #17122a;
-    opacity: .5;
     transition: .3s;
+    position: relative;
+}
+.player img{
+    border: 4px solid #17122a;
+    width: 60px;
+    border-radius: 50%;
+    opacity: 0.6;
 }
 
-.player:hover {
-    border: 4px solid #2a2343;
-}
-
-.player-active {
+.player-active img{
     opacity: 1;
-    border: 4px solid #2a2343;
+    border: 6px solid #2a2343;
 }
 
-#xPlayerDisplay {
+#xPlayerDisplay span{
+    font-size: 25px;
+    font-weight: bold;
     color: #1892ea;
+    position: absolute;
+    bottom: -12px;
+    left: -6px;
 }
 
-#oPlayerDisplay {
+#oPlayerDisplay span{
+    font-size: 25px;
+    font-weight: bold;
     color: #a737ff;
+    position: absolute;
+    bottom: -12px;
+    right: -6px;
 }
-
 #board {
     display: grid;
     grid-template-columns: repeat(3, 70px);
