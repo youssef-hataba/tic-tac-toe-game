@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <main>
-        <header id="header">
-            <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
-            <h3 id="titleHeader">Choose</h3>
-            <div class="player" id="oPlayerDisplay" onclick="choosePlayer('O')">O</div>
-        </header>
-        <div id="board">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
+      <div id="scoreboard">
+        <p>Score</p>
+        <div class="scoreRating">
+          <div class="score playerBox">
+            <div class="text">
+                <span class="player-name">Player 1</span>
+                <i class="fa-solid fa-pen edit-name"></i>
+                <input type="text" class="name-input hidden" />
+            </div>
+            <img src="/img/player1.jpg" class="playerImg" alt="">
+            <span class="xWin">0</span>
         </div>
-        <button id="restartBtn">Restart</button>
+        <div class="score playerBox">
+            <div class="text">
+                <span class="player-name">Player 2</span>
+                <i class="fa-solid fa-pen edit-name"></i>
+                <input type="text" class="name-input hidden" />
+            </div>
+            <img src="./img/player2.jpg" class="playerImg" alt="">
+            <span class="oWin">0</span>
+        </div>
+          <div class="score playerBox ">
+            <span class="draws">Draws:</span>
+            <span id="draws">0</span>
+          </div>
+        </div>
+      </div>
+      <header id="header">
+        <div class="player player-active" id="xPlayerDisplay" onclick="choosePlayer('X')">X</div>
+        <h3 id="titleHeader">Choose</h3>
+        <div class="player" id="oPlayerDisplay" onclick="choosePlayer('O')">O</div>
+      </header>
+      <div id="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <button id="newroundBtn">New Round</button>
     </main>
     <script src="main.js"></script>
-</body>
-
+    <script src="https://kit.fontawesome.com/923f9aa532.js" crossorigin="anonymous"></script>
+  </body>
 </html>
