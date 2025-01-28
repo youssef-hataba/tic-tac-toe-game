@@ -179,3 +179,22 @@ main {
 #newroundBtn:hover {
     background-color: #2a2343;
 }
+
+#restartBtn {
+    margin-top: 30px;
+    width: 235px;
+    background-color: #17122a;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s background;
+    visibility: hidden;
+}
+
+#restartBtn:hover {
+    background-color: #2a2343;
+}

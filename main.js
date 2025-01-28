@@ -2,7 +2,10 @@ const cells = document.querySelectorAll(".cell");
 const titleHeader = document.querySelector("#titleHeader");
 const xPlayerDisplay = document.querySelector("#xPlayerDisplay");
 const oPlayerDisplay = document.querySelector("#oPlayerDisplay");
+
 const newroundBtn = document.querySelector("#newroundBtn");
+const restartBtn = document.querySelector("#restartBtn");
+
 const xWinDisplay = document.querySelector(".xWin");
 const oWinDisplay = document.querySelector(".oWin");
 const drawsDisplay = document.querySelector("#draws");
@@ -74,23 +77,6 @@ function checkWinner() {
   return false;
 }
 
-function declareWinner(winningIndices) {
-  titleHeader.textContent = `${player} Wins!`;
-  isPauseGame = true;
-
-  winningIndices.forEach((index) => {
-    cells[index].style.background = "#2a2343";
-  });
-
-  newroundBtn.style.visibility = "visible";
-}
-
-function declareDraw() {
-  titleHeader.textContent = "Draw!";
-  isPauseGame = true;
-  newroundBtn.style.visibility = "visible";
-}
-
 function choosePlayer(selectedPlayer) {
   if (!isGameStart) {
     player = selectedPlayer;
@@ -116,6 +102,27 @@ newroundBtn.addEventListener("click", () => {
   titleHeader.textContent = "Choose";
 });
 
+restartBtn.addEventListener("click", () => {
+
+  restartBtn.style.visibility = "hidden";
+
+  cells.forEach((cell) => {
+    cell.innerText = "";
+    cell.classList.remove("x", "o");
+  });
+  xWin = 0;
+  oWin = 0;
+  draws = 0;
+
+  localStorage.setItem("xWin", 0);
+  localStorage.setItem("oWin", 0);
+  localStorage.setItem("draws", 0);
+
+  xWinDisplay.innerText = xWin;
+  oWinDisplay.innerText = oWin;
+  drawsDisplay.innerText = draws;
+});
+
 function declareWinner(winningIndices) {
   titleHeader.textContent = `${player} Wins!`;
   isPauseGame = true;
@@ -135,7 +142,9 @@ function declareWinner(winningIndices) {
   });
 
   newroundBtn.style.visibility = "visible";
+  restartBtn.style.visibility = "visible";
 }
+
 window.addEventListener("load", () => {
   xWin = parseInt(localStorage.getItem("xWin")) || 0;
   oWin = parseInt(localStorage.getItem("oWin")) || 0;
@@ -153,6 +162,7 @@ function declareDraw() {
   drawsDisplay.textContent = draws;
   localStorage.setItem("draws", draws);
   newroundBtn.style.visibility = "visible";
+  restartBtn.style.visibility = "visible";
 }
 
 //? edit name of player
